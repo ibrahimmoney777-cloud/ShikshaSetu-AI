@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-800 antialiased;
+  }
+
+  ::selection {
+    @apply bg-accent-blue/20 text-navy-900;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-20 lg:py-28;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-accent-cyan via-accent-blue to-accent-purple bg-clip-text text-transparent;
+  }
+
+  .card-base {
+    @apply rounded-2xl border border-slate-200/70 bg-white p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-accent-blue/20 hover:shadow-card-hover;
+  }
+
+  .card-glass {
+    @apply rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-all duration-300 hover:border-white/20 hover:bg-white/10;
+  }
+
+  .card-dark {
+    @apply rounded-2xl border border-white/10 bg-navy-800/50 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent-cyan/30 hover:shadow-glow;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent-blue to-accent-purple px-6 py-3.5 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:shadow-glow focus:outline-none focus:ring-2 focus:ring-accent-blue focus:ring-offset-2;
+  }
+
+  .btn-primary:hover {
+    transform: scale(1.02);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border-2 border-slate-200 bg-white px-6 py-3.5 text-sm font-semibold text-navy-900 transition-all duration-300 hover:border-accent-blue hover:text-accent-blue focus:outline-none focus:ring-2 focus:ring-accent-blue focus:ring-offset-2;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wide;
+  }
+
+  .logo-placeholder {
+    @apply flex items-center justify-center rounded-lg border-2 border-dashed border-slate-300 bg-slate-100 text-xs font-medium text-slate-400;
+    font-size: 10px;
+  }
+
+  .image-placeholder {
+    @apply flex w-full items-center justify-center rounded-xl border-2 border-dashed border-slate-200 bg-gradient-to-br from-slate-50 to-slate-100 text-sm text-slate-500;
+  }
+
+  .mesh-bg {
+    background-image:
+      radial-gradient(at 20% 30%, rgba(59, 130, 246, 0.12) 0, transparent 50%),
+      radial-gradient(at 80% 70%, rgba(139, 92, 246, 0.1) 0, transparent 50%);
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
